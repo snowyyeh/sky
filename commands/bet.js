@@ -30,7 +30,7 @@ module.exports = {
     },
     meta: {
         name: 'bet',
-        ownerOnly: true,
+        ownerOnly: false,
         description: 'Test your luck by betting Sky points.',
         usage: '<%amount of points%>'
     }
