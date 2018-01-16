@@ -5,7 +5,7 @@ module.exports = {
             const leaderboard = [];
             leaderboard.push('**__DISPLAYING TOP 10 USERS__**');
             var place = 0;
-            const lb = db.array().slice(0, 10).sort((b, a) => a.points - b.points)
+            const lb = db.array().slice(0, 10).sort((a, b) => b.points - a.points)
             .forEach(element => {
                 place++;
                 leaderboard.push(`**[#${place}]** | **${element.tag}** with **${element.points}** points.`);
