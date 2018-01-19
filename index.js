@@ -9,6 +9,9 @@ client.error = require('./util/errorLogger.js').run;
 client.points = new Enmap({ provider: new EnmapLevel({ name: 'points' }) });
 
 
+require('./website/website.js').app.listen(4444, function() {
+    console.log('Listening on port 4444.');
+});
 
 fs.readdir('./events', (err, files) => {
     if (err) return console.error(err);
