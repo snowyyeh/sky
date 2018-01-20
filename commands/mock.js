@@ -1,7 +1,7 @@
 module.exports = {
     run: async (client, msg, args) => {
         const m = await msg.channel.messages.fetch({limit: 2}).last();
-        const mock = function(string) {
+        const mock = async function(string) {
             var chars = string.toUpperCase().split('');
             for (let i = 0; i < chars.length; i += 2) {
                 chars[i] = chars[i].toLowerCase();
