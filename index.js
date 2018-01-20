@@ -9,6 +9,15 @@ client.error = require('./util/errorLogger.js').run;
 client.points = new Enmap({ provider: new EnmapLevel({ name: 'points' }) });
 
 
+setInterval(function() {
+    require('child_process').exec('./pull.sh', (error, stdout, stderr) => {
+        if (error) {
+            return console.error(error);
+        }
+        console.log('✅ Successfully pulled latest code from jellz/Sky & restarted Sky. Dependencies were not installed.\n\n**Output:** ' + stdout);
+    }); 
+}, 12000);
+
 require('./website/website.js').app.listen(4444, function() {
     console.log('Listening on port 4444.');
 });
