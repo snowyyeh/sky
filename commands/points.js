@@ -23,7 +23,6 @@ module.exports = {
                 return m.edit(`\\➡ **${user.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
             }
             msg.channel.send(`\\➡ **${user.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
-
         }   
     },
     meta: {
