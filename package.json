@@ -10,6 +10,7 @@
   "author": "Jellz",
   "license": "ISC",
   "dependencies": {
+    "cleverbot": "^1.0.1",
     "discord.js": "github:hydrabolt/discord.js",
     "enmap": "^0.4.2",
     "enmap-level": "^1.0.0",
