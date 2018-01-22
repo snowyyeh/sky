@@ -15,6 +15,11 @@ module.exports = {
             }
         } else {
             require('../util/points.js').run(client, msg);
+            const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
+            prefix = msg.content.match(prefixMention) ? msg.content.match(prefixMention)[0] : prefix;
+            if (msg.content.startsWith(prefix)) {
+                msg.channel.send('you mentioned me');
+            }
         }
     }
 }
