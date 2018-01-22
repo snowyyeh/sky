@@ -18,7 +18,9 @@ module.exports = {
             const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
             const prefix = msg.content.match(prefixMention) ? msg.content.match(prefixMention)[0] : prefix;
             if (msg.content.startsWith(prefix)) {
-                msg.channel.send('you mentioned me');
+                const query = msg.content.split(' ')[1];
+                const response = require('../util/cleverbot.js').run(client, query);
+                msg.channel.send(`**${msg.author.username}**, ${response}`);
             }
         }
     }
