@@ -9,6 +9,11 @@ client.error = require('./util/errorLogger.js').run;
 client.points = new Enmap({ provider: new EnmapLevel({ name: 'points' }) });
 const db = client.points;
 
+const Cleverbot = require('cleverbot');
+ 
+exports.clev = new Cleverbot({
+    key: client.config.cleverbotKey
+});
 
 setInterval(function() {
     require('child_process').exec('./pull.sh', (error, stdout, stderr) => {

@@ -18,26 +18,10 @@ module.exports = {
             const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
             const prefix = msg.content.match(prefixMention) ? msg.content.match(prefixMention)[0] : prefix;
             if (msg.content.startsWith(prefix)) {
-                const query = msg.content.split(' ')[1];
-                const Cleverbot = require('cleverbot');
- 
-                let clev = new Cleverbot({
-                    key: client.config.cleverbotKey
-                });
-                
-                
-                clev.query(query)
-                .then(function (response) {
-                  msg.channel.send(`**${msg.author.username}**, ${response.output}`);
-                 
-                  clev.query(response.output, {
-                    cs: response.cs
-                  })
-                  .then(function (response2) {
-                    msg.channel.send(`**${msg.author.username}**, ${response2.output}`);
-                });
-                 
-                });
+                const query = msg.content.split(' ')[1].join(' ');
+                const clev = require('../index.js').clev;
+                const result = await clev.query(query);
+                msg.channel.send(result.output);
             }
         }
     }
