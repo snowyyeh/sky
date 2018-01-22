@@ -17,7 +17,7 @@ setInterval(function() {
         }
         console.log('✅ Successfully pulled latest code from jellz/Sky. Dependencies were not installed.\n\nOutput: ' + stdout);
     }); 
-}, 12000);
+}, 20000);
 
 db.array().forEach(element => element.earningPoints = true);
 console.log('Set all points profiles to earning points.');
