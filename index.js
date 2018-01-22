@@ -14,11 +14,6 @@ setInterval(function() {
         if (error) {
             return console.error(error);
         }
-        if (!stdout.includes('Already')) {
-            const oof = require('child_process').exec('pm2 restart sky');
-            if (oof.error) return console.error(oof.error);
-            console.log('✅ Restarted sky.');
-        }
         console.log('✅ Successfully pulled latest code from jellz/Sky. Dependencies were not installed.\n\nOutput: ' + stdout);
     }); 
 }, 12000);
