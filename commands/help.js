@@ -37,11 +37,12 @@ module.exports = {
         } else if (args[0].toLowerCase() === 'cleverbot' || args[0].toLowerCase() === 'ai') {
             const helpCleverbot = [
                 '__Help for **Cleverbot**__',
+                '',
                 'Sky has a built-in Cleverbot AI.',
                 '',
                 'Access to Cleverbot API does infact cost $$ but it is worth it.',
                 'If you have any money to spare and would like to support the',
-                `Cleverbot AI in Sky, please use \`${client.config.prefix}about\` command.`,
+                `Cleverbot AI in Sky, please use the \`${client.config.prefix}about\` command.`,
                 'Donations are greatly appreciated.',
                 '',
                 'To use the Cleverbot AI, just mention Sky with a query.',
