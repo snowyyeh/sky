@@ -28,8 +28,8 @@ db.array().forEach(element => element.earningPoints = true);
 console.log('Set all points profiles to earning points.');
 
 
-require('./website/website.js').app.listen(4444, function() {
-    console.log('Listening on port 4444.');
+require('./website/website.js').app.listen(process.env.PORT || 3003, function() {
+    console.log(`Listening on port ${process.env.PORT || 3003}.`);
 }); // gonna work on website soon
 
 fs.readdir('./events', (err, files) => {
