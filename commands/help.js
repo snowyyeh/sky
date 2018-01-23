@@ -11,6 +11,7 @@ module.exports = {
                 '',
                 '**Some common help categories are...**',
                 `${client.config.prefix}help points`,
+                `${client.config.prefix}help cleverbot`,
                 '',
                 'For live support, please join the support guild:',
                 'https://discord.gg/s9qed5A',
