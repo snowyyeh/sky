@@ -5,7 +5,7 @@ module.exports = {
                 msg.channel.send(error);
                 return console.error(error);
             }
-            msg.channel.send('✅ Successfully pulled latest code from jellz/Sky & restarted Sky. Dependencies were not installed.\n\n**Output:** ' + stdout);
+            msg.channel.send('✅ Successfully pulled latest code from jellz/Sky. Dependencies were not installed.\n\n**Output:** ' + stdout);
         });        
     },
     meta: {
