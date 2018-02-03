@@ -15,7 +15,7 @@ module.exports = {
             }
         } else {
             require('../util/points.js').run(client, msg);
-            if (msg.content.toLowerCase().startsWith(`${client.user}`)) {
+            if (msg.content.startsWith(`${client.user}`)) {
                 const query = msg.content.split(' ').slice(1).join(' ');
                 const clev = require('../index.js').clev;
                 const result = await clev.query(query);
