@@ -6,7 +6,7 @@ module.exports = {
                 msg.channel.send(error);
                 return console.error(error);
             }
-            msg.channel.send(`\\📤 **Error:**\n\n${stderr}\n\n**Output:**\n\n${stdout}`);
+            msg.channel.send(`\\📤 **Output:**\n\n${stdout || stderr}`);
         });
     },
     meta: {
