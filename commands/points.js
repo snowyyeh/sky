@@ -12,7 +12,7 @@ module.exports = {
             msg.channel.send(`\\➡ **${msg.author.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
         } else {
             const user = msg.mentions.users.first() || client.users.get(args[0]);
-            if (!user) return msg.channel.send('\\❌ Please provide a user ID or user mention.');
+            if (!user) return msg.channel.send('\\❌ Invalid user.');
             if (user.bot) return msg.channel.send('\\❌ Bots do not have Sky points.');
             const db = client.points;
             var points = db.get(user.id);
