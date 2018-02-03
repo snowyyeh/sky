@@ -13,7 +13,7 @@ module.exports = {
         m.edit(infoMsg);
     },
     meta: {
-        name: 'cmd',
+        name: 'cmdinfo',
         ownerOnly: false,
         description: 'Returns information about the specified command.',
         usage: '<%command name%>'
