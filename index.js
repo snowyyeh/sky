@@ -15,14 +15,14 @@ exports.clev = new Cleverbot({
     key: client.config.cleverbotKey
 });
 
-setInterval(function() {
-    require('child_process').exec('./pull.sh', (error, stdout, stderr) => {
-        if (error) {
-            return console.error(error);
-        }
-        console.log('✅ Successfully pulled latest code from jellz/Sky. Dependencies were not installed.\n\nOutput: ' + stdout);
-    }); 
-}, 20000);
+// setInterval(function() {
+//     require('child_process').exec('./pull.sh', (error, stdout, stderr) => {
+//         if (error) {
+//             return console.error(error);
+//         }
+//         console.log('✅ Successfully pulled latest code from jellz/Sky. Dependencies were not installed.\n\nOutput: ' + stdout);
+//     }); 
+// }, 20000);
 
 
 

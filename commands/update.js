@@ -6,7 +6,7 @@ module.exports = {
                 return console.error(error);
             }
             msg.channel.send('✅ Successfully pulled latest code from jellz/Sky. Dependencies were not installed.\n\n**Output:** ' + stdout);
-        });        
+        });
     },
     meta: {
         name: 'update',
