@@ -1,3 +1,4 @@
+
 module.exports = {
     run: async (client, guild) => {
         const channel = client.channels.get(client.config.guildLogChannel);

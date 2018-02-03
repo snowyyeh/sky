@@ -6,7 +6,7 @@ module.exports = {
                 msg.channel.send(error);
                 return console.error(error);
             }
-            msg.channel.send(`\\📤 **Output:**\n\n${stdout.substring(1500) || stderr.substring(1500)}`);
+            msg.channel.send(`\\📤 **Output:**\n\n${stdout}`);
         });
     },
     meta: {
