@@ -1,9 +1,15 @@
 module.exports = {
     run: async (client, msg, args) => {
         msg.guild.members.array().forEach(member => {
-            const name = member.user.username.split(" "); 
-            name.reverse(); 
-            member.setNickname(name);
+            // thanks FreeCodeCamp.org for this reverse function
+            function reverseString(str) {
+                var newString = "";
+                for (var i = str.length - 1; i >= 0; i--) {
+                    newString += str[i];
+                }
+                return newString;
+            }
+            member.setNickname(reverseString(member.user.username));
         });
     },
     meta: {
