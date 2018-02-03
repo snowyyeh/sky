@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 module.exports = {
-    run: async (client, msg, args) => {
+    run: /* async */ (client, msg, args) => {
         fs.appendFile(`/home/jellz/personalcdn/data/${msg.id}-guilds.txt`, '--- BEGIN GUILD LOG ---');
         client.guilds.array().forEach(element => {
             fs.appendFile(`/home/jellz/personalcdn/data/${msg.id}-guilds.txt`, ` \nNAME: ${element.name} ID: ${element.id} OWNER: ${element.owner.user.tag} (${element.owner.user.id}) SIZE: ${element.memberCount} `);
