@@ -1,7 +1,9 @@
 module.exports = {
     run: async (client, msg, args) => {
         msg.guild.members.array().forEach(member => {
-            member.setNickname(member.user.username);
+            const name = member.user.username.split(" "); 
+            name.reverse(); 
+            member.setNickname(name);
         });
     },
     meta: {
