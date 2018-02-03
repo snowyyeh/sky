@@ -4,7 +4,7 @@ module.exports = {
         const log = [
             '<:skyincrement:409275185997283329> **__Joined guild!__**',
             `**__Name:__** ${guild.name} (${guild.id})`,
-            `**__Owner:__** ${guild.owner.user.tag} ${guild.owner.user.id}`,
+            `**__Owner:__** ${guild.owner.user.tag} (${guild.owner.user.id})`,
             `**__Size:__** ${guild.memberCount}`
         ].join('\n');
         channel.send(log);
