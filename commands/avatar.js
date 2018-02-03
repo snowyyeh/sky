@@ -1,9 +1,8 @@
 module.exports = {
     run: async (client, msg, args) => {
         const user = args[0] ? msg.mentions.users.first() || client.users.get(args[0]) : msg.author;
-        const m = await msg.channel.send(`<a:skyloading:397962260540293120> Grabbing avatar of **${user.tag}**...`, { files: [] });
-        m.delete;
-        msg.channel.send(`\\😀 Avatar of **${user.tag}**...`, { files: [user.avatarURL()] });        
+        const m = await msg.channel.send(`<a:skyloading:397962260540293120> Grabbing avatar of **${user.tag}**...`);
+        m.edit(`\\😀 Avatar of **${user.tag}**...\n${user.avatarURL()}`);        
     },
     meta: {
         name: 'avatar',
