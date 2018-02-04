@@ -1,5 +1,6 @@
 module.exports = {
     run: async (client, msg, args) => {
+        return msg.channel.send("POINTS ARE CURRENTLY DISABLED DUE TO PEOPLE ABUSING IT AND GETTING 50K+ POINTS, CHECK BACK LATER.");
         if (!args[0]) return msg.channel.send('\\❌ Please provide a number of points to bet.');
         const db = client.points;
         const profile = db.get(msg.author.id);
