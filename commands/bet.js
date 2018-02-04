@@ -1,6 +1,5 @@
 module.exports = {
     run: async (client, msg, args) => {
-        return msg.channel.send("POINTS ARE CURRENTLY DISABLED DUE TO PEOPLE ABUSING IT AND GETTING 50K+ POINTS, CHECK BACK LATER.");
         if (!args[0]) return msg.channel.send('\\❌ Please provide a number of points to bet.');
         const db = client.points;
         const profile = db.get(msg.author.id);
@@ -14,7 +13,7 @@ module.exports = {
             m.edit('<a:skyrolling:401999822128939018> Fetching results...');
         }, 2000);
         await setTimeout(function() {
-            if (Math.random() > 0.65) { // You lost hahaha
+            if (Math.random() > 0.50) { // You lost hahaha
                 m.edit(`\\❌ **You lost!** -${args[0]} points.`);
                 profile['points'] = profile['points'] - args[0];
             } else { // You won GG!
