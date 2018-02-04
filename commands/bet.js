@@ -1,6 +1,5 @@
 module.exports = {
     run: async (client, msg, args) => {
-        if (msg.author.id === "145863933083779073") return msg.channel.send("Your discord account has been temporarily suspended from the Sky Points network. If you feel this is a mistake, please contact support@jellz.fun. Thanks!");
         if (!args[0]) return msg.channel.send('\\❌ Please provide a number of points to bet.');
         const db = client.points;
         const profile = db.get(msg.author.id);
@@ -8,6 +7,7 @@ module.exports = {
         args[0] = Math.floor(args[0]);
         if (args[0] < 0 || args[0] == 0) return msg.channel.send('\\❤ Stay positive. ');
         if (args[0] == 1) return msg.channel.send('\\❌ Minimum bet amount is **2** points. Please try again.');
+        if (args[0] > 200) return msg.channel.send('\\❌ Maximum bet amount is **200** points. Please try again.');
         if (args[0] > profile['points']) return msg.channel.send('\\❌ You don\'t have that many points, bucko!');
         const m = await msg.channel.send('<a:skyloading:397962260540293120> Placing bet...');
         setTimeout(function() {
