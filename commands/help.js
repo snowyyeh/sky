@@ -25,6 +25,7 @@ module.exports = {
                 '',
                 'One of Sky\'s many fun features is a chat-based Points system.',
                 'Users earn points by chatting in any channel Sky can read.',
+                '**Note!** Sky Points™ are global, across all guilds.',
                 'Sky\'s Points system does not include "levels" so you will not be seeing any **Level up!** messages.',
                 'Points are often referred to as points or Sky Points™, so if you see someone talking about Sky Points™, you know what they mean.',
                 '',
