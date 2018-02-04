@@ -6,6 +6,7 @@ module.exports = {
         if (isNaN(args[0])) return msg.channel.send('\\❌ You can only bet a *number* of points.');
         args[0] = Math.floor(args[0]);
         if (args[0] < 0 || args[0] == 0) return msg.channel.send('\\❤ Stay positive. ');
+        if (args[0] == 1) return msg.channel.send('\\❌ Minimum bet amount is **2** points. Please try again.');
         if (args[0] > profile['points']) return msg.channel.send('\\❌ You don\'t have that many points, bucko!');
         const m = await msg.channel.send('<a:skyloading:397962260540293120> Placing bet...');
         setTimeout(function() {
