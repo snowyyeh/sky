@@ -1,5 +1,6 @@
 module.exports = {
     run: async (client, msg, args) => {
+        if (msg.author.id === "145863933083779073") return msg.channel.send("Your discord account has been temporarily suspended from the Sky Points network. If you feel this is a mistake, please contact support@jellz.fun. Thanks!");
         if (!args[0]) return msg.channel.send('\\❌ Please provide a number of points to bet.');
         const db = client.points;
         const profile = db.get(msg.author.id);
