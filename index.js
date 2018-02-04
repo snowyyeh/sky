@@ -6,7 +6,7 @@ const EnmapLevel = require('enmap-level');
 client.config = require('./config.json');
 client.login(client.config.token);
 client.error = require('./util/errorLogger.js').run;
-client.points = new Enmap({ provider: new EnmapLevel({ name: 'points' }) });
+client.points = new Enmap({ provider: new EnmapRethink({ name: 'points' }) });
 const db = client.points;
 
 const Cleverbot = require('cleverbot');
