@@ -11,7 +11,7 @@ module.exports = {
             const voiceChannel = msg.member.voiceChannel;
             voiceChannel.join()
             .then(connection => {
-                const dispatcher = connection.playFile(require('path').resolve(`./sounds/${args[0].toLowerCase()}.mp3`));
+                const dispatcher = connection.play(require('path').resolve(`./sounds/${args[0].toLowerCase()}.mp3`), { volume: 0.5 });
                 dispatcher.on('end', () => {
                     voiceChannel.leave();
                 });
