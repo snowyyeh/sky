@@ -12,11 +12,9 @@
   "dependencies": {
     "cleverbot": "^1.0.1",
     "discord.js": "github:hydrabolt/discord.js",
-    "enmap": "^0.4.2",
-    "enmap-level": "^1.0.0",
-    "enmap-rethink": "^1.0.0",
     "express": "^4.16.2",
     "node-opus": "^0.2.7",
+    "rethinkdbdash": "^2.3.31",
     "snekfetch": "^3.6.1",
     "ytdl-core": "^0.18.7"
   }
