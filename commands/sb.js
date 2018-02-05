@@ -1,6 +1,5 @@
 module.exports = {
     run: async (client, msg, args) => {
-        return msg.channel.send('**The soundboard command is currently disabled due to FFMPEG issues! Sorry! :<**');
         const sounds = ['johncena', 'oof', 'airhorn'];
         const resolve = require('path').resolve;
         if (!args[0]) return msg.channel.send('\\❌ Please provide a sound to play. Use `sb list` for a list of sounds.');
