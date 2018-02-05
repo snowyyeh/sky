@@ -2,7 +2,7 @@ module.exports = {
     run: async (client, msg, args) => {
         if (!args[0]) return msg.channel.send('\\❌ Please provide a number of points to bet.');
         const r = client.db;
-        const profile = await r.table('points').get(msg.author.id).run();
+        const profile = await r.table('globalPoints').get(msg.author.id).run();
         if (isNaN(args[0])) return msg.channel.send('\\❌ You can only bet a *number* of points.');
         args[0] = Math.floor(args[0]);
         if (args[0] < 0 || args[0] == 0) return msg.channel.send('\\❤ Stay positive. ');
@@ -21,7 +21,7 @@ module.exports = {
                 m.edit(`\\✅ **You won!** +${args[0]} points.`);
                 profile['points'] = profile['points'] + args[0] * 2;
             }
-            await r.table('points').get(msg.author.id).update(profile).run();
+            await r.table('globalPoints').get(msg.author.id).update(profile).run();
         }, 2000);
     },
     meta: {

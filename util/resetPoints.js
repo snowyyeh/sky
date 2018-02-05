@@ -7,6 +7,6 @@ module.exports = {
         }
         defaultPointsSchema['id'] = user.id;
         defaultPointsSchema['tag'] = user.tag;
-        await r.table('points').get(user.id).update(defaultPointsSchema).run();
+        await r.table('globalPoints').get(user.id).update(defaultPointsSchema).run();
     }
 }
