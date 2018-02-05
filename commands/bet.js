@@ -21,7 +21,7 @@ module.exports = {
                 m.edit(`\\✅ **You won!** +${args[0]} points.`);
                 profile['points'] = profile['points'] + args[0] * 2;
             }
-            await r.table('globalPoints').get(msg.author.id).update(profile).run();
+            r.table('globalPoints').get(msg.author.id).update(profile).run();
         }, 2000);
     },
     meta: {
