@@ -1,8 +1,6 @@
 const { Client } = require('discord.js');
 const client = new Client({ disableEveryone: true});
 const fs = require('fs');
-const Enmap = require('enmap');
-const EnmapRethink = require('enmap-rethink');
 client.config = require('./config.json');
 client.login(client.config.token);
 client.error = require('./util/errorLogger.js').run;
