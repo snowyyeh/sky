@@ -1,24 +1,24 @@
 module.exports = {
     run: async (client, msg) => {
-        const db = client.points;
-        if (!db.has(msg.author.id)) {
+        const r = client.db;
+        if (!await r.table('points').get(msg.author.id).run()) {
             const defaultPointsSchema = {
                 points: 0,
                 earningPoints: true,
             }
             defaultPointsSchema['id'] = msg.author.id;
             defaultPointsSchema['tag'] = msg.author.tag;
-            await db.set(msg.author.id, defaultPointsSchema);
+            await r.table('points').get(msg.author.id).update(defaultPointsSchema).run();
         }
-        const points = db.get(msg.author.id);
+        const points = await r.table('points').get(msg.author.id).run();
         if (points.earningPoints) {
             points.points++;
             points.points++;
             points.earningPoints = false;
-            await db.set(msg.author.id, points);
+            await r.table('points').get(msg.author.id).update(points).run();
             setTimeout(async function() {
                 points.earningPoints = await true;
-                db.set(msg.author.id, points);
+                await r.table('points').get(msg.author.id).update(points).run();
             }, 60000);
         }
     }

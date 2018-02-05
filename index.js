@@ -6,7 +6,7 @@ const EnmapRethink = require('enmap-rethink');
 client.config = require('./config.json');
 client.login(client.config.token);
 client.error = require('./util/errorLogger.js').run;
-client.db = require('rethinkdbash')({db:'sky'});
+client.db = require('rethinkdbash')( {db: 'sky' });
 
 const Cleverbot = require('cleverbot');
  

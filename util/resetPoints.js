@@ -1,12 +1,12 @@
 module.exports = {
     run: async (client, user) => {
-        const db = client.points;
+        const r = client.db;
         const defaultPointsSchema = {
             points: 0,
             earningPoints: true,
         }
         defaultPointsSchema['id'] = user.id;
         defaultPointsSchema['tag'] = user.tag;
-        db.set(user.id, defaultPointsSchema);
+        await r.table('points').get(user.id).update(defaultPointsSchema).run();
     }
 }

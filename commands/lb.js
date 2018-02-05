@@ -1,10 +1,11 @@
 module.exports = {
     run: async (client, msg, args) => {
-        const db = client.points;
+        const r = client.db;
         const leaderboard = [];
+        leaderboard.push('*The leaderboard was recently reset, now\'s your chance to get to the top!*');
         leaderboard.push('**__DISPLAYING TOP 10 USERS__**');
         var place = 0;
-        const lb = db.array().sort((a, b) => b.points - a.points).slice(0, 10)
+        const lb = await r.table('points').run().sort((a, b) => b.points - a.points).slice(0, 10)
         .forEach(element => {
             place++;
             leaderboard.push(`**[#${place}]** | **${element.tag}** with **${element.points}** points.`);
