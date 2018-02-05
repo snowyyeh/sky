@@ -1,6 +1,7 @@
 module.exports = {
     run: async (client, msg, args) => {
         const categories = ['points'];
+        const r = client.db;
         if (!args[0]) {
             const helpMain = [
                 '__Help for **Sky** __',
@@ -20,6 +21,7 @@ module.exports = {
             msg.channel.send(helpMain);
         } else if (args[0].toLowerCase() === 'points' || args[0].toLowerCase() === 'pts') {
             const pointsCmds = [`\`${client.config.prefix}lb\``, `\`${client.config.prefix}points\``, `\`${client.config.prefix}bet\``];
+            const topUser = (await r.table('globalPoints').run()).sort((a, b) => b.points - a.points)[0].tag;
             const helpPoints = [
                 '__Help for **Points**__',
                 '',
@@ -33,10 +35,11 @@ module.exports = {
                 'Say you bet 50 points: you either win, or you lose. Winning would mean you gain 50 points. Losing would mean you lose the 50 points you bet.',
                 `The current points commands consist of: ${pointsCmds.join(' ')}.`,
                 '',
-                `Currently the user with the most Sky Points™ is **${await client.db.table('globalPoints').run().sort((a, b) => b.points - a.points)[0].tag}**, see if you can overtake them!`
+                `Currently the user with the most Sky Points™ is **${topUser}**, see if you can overtake them!`
             ].join('\n');
             msg.channel.send(helpPoints);
         } else if (args[0].toLowerCase() === 'cleverbot' || args[0].toLowerCase() === 'ai') {
+            return msg.channel.send('Cleverbot is currently disabled due to technical difficulties, check back soon.');
             const helpCleverbot = [
                 '__Help for **Cleverbot**__',
                 '',
