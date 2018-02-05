@@ -15,7 +15,7 @@ module.exports = {
             points.points++;
             points.points++;
             points.earningPoints = false;
-            await r.table('points').get(msg.author.id).update(points).run();
+            await r.table('globalPoints').get(msg.author.id).update(points).run();
             setTimeout(async function() {
                 points.earningPoints = await true;
                 await r.table('globalPoints').get(msg.author.id).update(points).run();
