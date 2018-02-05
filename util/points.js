@@ -8,7 +8,7 @@ module.exports = {
             }
             defaultPointsSchema['id'] = msg.author.id;
             defaultPointsSchema['tag'] = msg.author.tag;
-            await r.table('points').get(msg.author.id).update(defaultPointsSchema).run();
+            await r.table('globalPoints').get(msg.author.id).update(defaultPointsSchema).run();
         }
         const points = await r.table('globalPoints').get(msg.author.id).run();
         if (points.earningPoints) {
