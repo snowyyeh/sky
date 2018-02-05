@@ -7,6 +7,7 @@ module.exports = {
             msg.channel.send(`\\🎵 **Displaying ${sounds.length} sounds** \\➡ ${sounds.join(', ')}`);
         } else if (sounds.includes(args[0].toLowerCase())) {
             if (!msg.member.voiceChannel) return msg.channel.send('\\❌ You must be in a voice channel to use this command.');
+            msg.react('🔊');
             const voiceChannel = msg.member.voiceChannel;
             voiceChannel.join()
             .then(connection => {
@@ -15,6 +16,8 @@ module.exports = {
                     voiceChannel.leave();
                 });
             });
+        } else {
+            msg.channel.send('\\❌ Unknown sound.');
         } 
     },
     meta: {
