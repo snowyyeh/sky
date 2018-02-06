@@ -1,5 +1,5 @@
 module.exports = {
-    run: async (client, user, points = 2) => {
+    run: async (client, user, amtOfPoints = 2) => {
         const r = client.db;
         if (!await r.table('globalPoints').get(user.id).run()) {
             require('./insertNewPointsUser.js').run(client, user);
