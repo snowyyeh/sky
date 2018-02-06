@@ -4,11 +4,7 @@ module.exports = {
         if (!args[0]) {
             var points = await r.table('globalPoints').get(msg.author.id).run();
             if (!points) {
-                const m = await msg.channel.send(`<a:skyloading:397962260540293120> Generating profile for **${msg.author.tag}**...`);
-                require('../util/points.js').run(client, msg.author);
-                points = await r.table('globalPoints').get(msg.author.id).run();
-                console.log(points);
-                return m.edit(`\\➡ **${msg.author.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
+                msg.channel.send(`\\❌ **${msg.author.tag}** does not have a profile. Start chatting to automatically generate one.`);
             }
             msg.channel.send(`\\➡ **${msg.author.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
         } else {
@@ -17,10 +13,7 @@ module.exports = {
             if (user.bot) return msg.channel.send('\\❌ Bots do not have Sky points.');
             var points = await r.table('globalPoints').get(user.id).run();
             if (!points) {
-                const m = await msg.channel.send(`<a:skyloading:397962260540293120> Generating profile for **${user.tag}**...`);
-                require('../util/points.js').run(client, user);
-                points = await r.table('globalPoints').get(user.id).run();
-                return m.edit(`\\➡ **${user.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
+                msg.channel.send(`\\❌ **${user.tag}** does not have a profile. Get them to start chatting to automatically generate one.`);
             }
             msg.channel.send(`\\➡ **${user.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
         }   
