@@ -2,6 +2,7 @@ module.exports = {
     run: async (client, msg, args) => {
         const info = [
             '__About **Sky**__',
+            '',
             `Sky is in **${client.guilds.size}** guilds.`,
             `Sky is monitoring **${client.channels.size}** channels.`,
             `Sky is playing with **${client.users.size}** other users.`,
