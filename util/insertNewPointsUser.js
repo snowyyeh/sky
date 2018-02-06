@@ -2,7 +2,7 @@ module.exports = {
     run: async (client, user) => {
         const r = client.db;
         const defaultPointsSchema = {
-            points: 0,
+            points: 2,
             earningPoints: true,
         }
         defaultPointsSchema['id'] = user.id;
