@@ -15,12 +15,12 @@ module.exports = {
             }
         } else {
             require('../util/points.js').run(client, msg);
-            if (msg.content.startsWith(`<@${client.user}>`)) {
-                const query = msg.content.split(' ').slice(1).join(' ');
-                const clev = require('../index.js').clev;
-                const result = await clev.query(query);
-                msg.channel.send(result.output);
-            }
+            const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
+            prefix = message.content.match(prefixMention) ? message.content.match(prefixMention)[0] : prefix;
+            const query = msg.content.split(' ').slice(1).join(' ');
+            const clev = require('../index.js').clev;
+            const result = await clev.query(query);
+            msg.channel.send(result.output);
         }
     }
 }
