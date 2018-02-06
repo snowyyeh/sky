@@ -13,14 +13,6 @@ module.exports = {
                 if (err.toString().toLowerCase().includes('cannot find module')) return;       
                 client.error(client, err.stack, `(Message Handler) Command Run`, `**cmd:** ${msg.content} **user:** ${msg.author.tag} (${msg.author.id}) **guild:** ${msg.guild.name} (${msg.guild.id})`);
             }
-        } else {
-            require('../util/points.js').run(client, msg);
-            const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
-            prefix = message.content.match(prefixMention) ? message.content.match(prefixMention)[0] : prefix;
-            const query = msg.content.split(' ').slice(1).join(' ');
-            const clev = require('../index.js').clev;
-            const result = await clev.query(query);
-            msg.channel.send(result.output);
         }
     }
 }
