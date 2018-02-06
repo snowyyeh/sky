@@ -5,7 +5,7 @@ module.exports = {
             var points = await r.table('globalPoints').get(msg.author.id).run();
             if (!points) {
                 const m = await msg.channel.send(`<a:skyloading:397962260540293120> Generating profile for **${msg.author.tag}**...`);
-                require('../util/insertNewPointsUser.js').run(client, user);
+                require('../util/points.js').run(client, msg.author);
                 points = await r.table('globalPoints').get(msg.author.id).run();
                 return m.edit(`\\➡ **${msg.author.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
             }
@@ -17,7 +17,7 @@ module.exports = {
             var points = await r.table('globalPoints').get(user.id).run();
             if (!points) {
                 const m = await msg.channel.send(`<a:skyloading:397962260540293120> Generating profile for **${user.tag}**...`);
-                require('../util/insertNewPointsUser.js').run(client, user);
+                require('../util/points.js').run(client, user);
                 points = await r.table('globalPoints').get(user.id).run();
                 return m.edit(`\\➡ **${user.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
             }
@@ -27,7 +27,7 @@ module.exports = {
     meta: {
         name: 'points',
         ownerOnly: false,
-        description: 'View your Sky points.',
+        description: 'View your or another user\'s Sky Points™.',
         usage: '[%mention%|%user ID%]'
     }
 }

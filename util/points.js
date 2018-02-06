@@ -1,24 +1,18 @@
 module.exports = {
-    run: async (client, msg) => {
+    run: async (client, user) => {
         const r = client.db;
-        if (!await r.table('globalPoints').get(msg.author.id).run()) {
-            const defaultPointsSchema = {
-                points: 0,
-                earningPoints: true,
-            }
-            defaultPointsSchema['id'] = msg.author.id;
-            defaultPointsSchema['tag'] = msg.author.tag;
-            await r.table('globalPoints').insert(defaultPointsSchema).run();
+        if (!await r.table('globalPoints').get(user.id).run()) {
+            require('./insertNewPointsUser.js').run(client, user);
         }
-        const points = await r.table('globalPoints').get(msg.author.id).run();
+        const points = await r.table('globalPoints').get(user.id).run();
         if (points.earningPoints) {
             points.points++;
             points.points++;
             points.earningPoints = false;
-            await r.table('globalPoints').get(msg.author.id).update(points).run();
+            await r.table('globalPoints').get(user.id).update(points).run();
             setTimeout(async function() {
                 points.earningPoints = await true;
-                await r.table('globalPoints').get(msg.author.id).update(points).run();
+                await r.table('globalPoints').get(user.id).update(points).run();
             }, 60000);
         }
     }
