@@ -7,6 +7,7 @@ module.exports = {
                 const m = await msg.channel.send(`<a:skyloading:397962260540293120> Generating profile for **${msg.author.tag}**...`);
                 require('../util/points.js').run(client, msg.author);
                 points = await r.table('globalPoints').get(msg.author.id).run();
+                console.log(points);
                 return m.edit(`\\➡ **${msg.author.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
             }
             msg.channel.send(`\\➡ **${msg.author.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
