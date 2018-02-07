@@ -6,7 +6,7 @@ module.exports = {
                 msg.channel.send(error);
                 return console.error(error);
             }
-            msg.channel.send(stdout.slice(0, 1500), { code: 'json' });
+            msg.channel.send(stdout.slice(0, 1500), { code: 'js' });
         });
     },
     meta: {
