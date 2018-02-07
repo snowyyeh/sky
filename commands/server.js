@@ -11,16 +11,16 @@ module.exports = {
         const info = [
             `__About **${target.name}**__`,
             '',
-            `${extraInfo.boldName} has **${extraInfo.humans}** humans & **${extraInfo.bots}** bots.`,
-            `${extraInfo.boldName} ${guildDbInfo.premium ? '**has** Sky Premium.' : '**does not** have Sky Premium.'}`,
-            `${extraInfo.boldName} ${guildDbInfo.official ? '**is** an official Sky guild.' : '**is not** an official Sky guild.'}`,
-            `${extraInfo.boldName}'s verification level is set to **${target.verificationLevel}**.`,
-            `${extraInfo.boldName} has **${target.channels.size}** channels.`,
-            `${extraInfo.boldName} has **${target.roles.size}** roles.`,
-            `${extraInfo.boldName} is owned by **${target.owner.user.tag}**.`,
-            `${extraInfo.boldName} is located in **${target.region.toUpperCase()}**.`,
-            `${extraInfo.boldName} has **${target.emojis.size}** custom emojis.`,
-            `${extraInfo.boldName}'s icon can be found @ ${target.iconURL()}.`
+            `• has **${extraInfo.humans}** humans & **${extraInfo.bots}** bots.`,
+            `• ${guildDbInfo.premium ? '**has** Sky Premium.' : '**does not** have Sky Premium.'}`,
+            `• ${guildDbInfo.official ? '**is** an official Sky guild.' : '**is not** an official Sky guild.'}`,
+            `• verification level is set to **${target.verificationLevel}**.`,
+            `• has **${target.channels.size}** channels.`,
+            `• has **${target.roles.size}** roles.`,
+            `• is owned by **${target.owner.user.tag}**.`,
+            `• is located in **${target.region.toUpperCase()}**.`,
+            `• has **${target.emojis.size}** custom emojis.`,
+            `• icon can be found @ ${target.iconURL({ format: 'png' })}.`
         ].join('\n');
         msg.channel.send(info);
     },
