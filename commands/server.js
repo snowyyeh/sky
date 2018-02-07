@@ -4,8 +4,8 @@ module.exports = {
         if (!target) return msg.channel.send('\\❌ Invalid server.');
         const guildDbInfo = await client.db.table('guildConfig').get(target.id).run();
         const extraInfo = {
-            humans: target.memberCount - target.members.array().filter(member => member.user.bot),
-            bots: target.members.array().filter(member => member.user.bot),
+            humans: target.memberCount - target.members.array().filter(member => member.user.bot).length,
+            bots: target.members.array().filter(member => member.user.bot).length,
             boldName: `**${target.name}**`
         };
         const info = [
@@ -20,7 +20,7 @@ module.exports = {
             `${extraInfo.boldName} is owned by **${target.owner.user.tag}**.`,
             `${extraInfo.boldName} is located in **${target.region.toUpperCase()}**.`,
             `${extraInfo.boldName} has **${target.emojis.size}** custom emojis.`,
-            `${extraInfo.boldName}'s icon can be found @ **${target.iconURL()}**.`
+            `${extraInfo.boldName}'s icon can be found @ ${target.iconURL()}.`
         ].join('\n');
         msg.channel.send(info);
     },
