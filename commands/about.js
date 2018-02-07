@@ -3,6 +3,8 @@ module.exports = {
         const info = [
             '__About **Sky**__',
             '',
+            'Sky is a fun Discord bot dedicated to spicing up your Discord server.',
+            '',
             `Sky is in **${client.guilds.size}** guilds.`,
             `Sky is monitoring **${client.channels.size}** channels.`,
             `Sky is playing with **${client.users.size}** other users.`,
