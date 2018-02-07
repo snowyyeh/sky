@@ -6,8 +6,7 @@ module.exports = {
         }
         const points = await r.table('globalPoints').get(user.id).run();
         if (points.earningPoints) {
-            points.points++;
-            points.points++;
+            points.points + amtOfPoints;
             points.earningPoints = false;
             await r.table('globalPoints').get(user.id).update(points).run();
             setTimeout(async function() {

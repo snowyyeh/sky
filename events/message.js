@@ -14,7 +14,13 @@ module.exports = {
                 client.error(client, err.stack, `(Message Handler) Command Run`, `**cmd:** ${msg.content} **user:** ${msg.author.tag} (${msg.author.id}) **guild:** ${msg.guild.name} (${msg.guild.id})`);
             }
         } else {
-            require('../util/points.js').run(client, msg.author);
+            const guildDbInfo = client.db.table('guildConfig').get(msg.guild.id).run();
+            if (guildDbInfo.premium || guildDbInfo.official) {
+                if (guildDbInfo.official) return require('../util/points.js').run(client, user, 2 * 3);
+                if (guildDbInfo.premium) return require('../util/points.js').run(client, user, 2 * 2);
+            } else {
+                require('../util/points.js').run(client, user);
+            }
         }
     }
 }

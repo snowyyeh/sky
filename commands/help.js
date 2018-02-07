@@ -25,15 +25,17 @@ module.exports = {
             const helpPoints = [
                 '__Help for **Points**__',
                 '',
-                'One of Sky\'s many fun features is a chat-based Points system.',
+                'One of Sky\'s many fun features is a *global* chat-based points system.',
                 'Users earn points by chatting in any channel Sky can read.',
-                '**Note!** Sky Points™ are global, across all guilds.',
                 'Sky\'s Points system does not include "levels" so you will not be seeing any **Level up!** messages.',
                 'Points are often referred to as points or Sky Points™, so if you see someone talking about Sky Points™, you know what they mean.',
                 '',
                 `Sky Points™ can also be gambled using the \`${client.config.prefix}bet\` command.`,
-                'Say you bet 50 points: you either win, or you lose. Winning would mean you gain 50 points. Losing would mean you lose the 50 points you bet.',
+                'Say you bet 50 points: you either win, or you lose. Winning would mean you gain 50 points. Losing would mean you lose 50 points.',
                 `The current points commands consist of: ${pointsCmds.join(' ')}.`,
+                '',
+                '**Fun fact!** If you chat in an official guild, you get 3x the normal reward! An example of an official guild would be **Jellz\'s Jungle**.',
+                `If you would like to join **Jellz's Jungle**, use \`${client.config.prefix}help\`.`,
                 '',
                 `Currently the user with the most Sky Points™ is **${topUser}**, see if you can overtake them!`
             ].join('\n');
