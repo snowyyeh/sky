@@ -2,7 +2,7 @@ module.exports = {
     run: async (client, msg, args) => {
         const target = args[0] ? client.guilds.get(args[0]) : msg.guild;
         if (!target) return msg.channel.send('\\❌ Invalid server.');
-        const guildDbInfo = await client.db.get(target.id).run();
+        const guildDbInfo = await client.db.table('guildConfig').get(target.id).run();
         const extraInfo = {
             humans: target.memberCount - target.members.filter(member => member.user.bot),
             bots: target.members.filter(member => member.user.bot),
