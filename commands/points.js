@@ -8,20 +8,20 @@ module.exports = {
             }
             msg.channel.send(`\\➡ **${msg.author.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
         } else {
-            const user = msg.mentions.users.first() || client.users.get(args[0]);
-            if (!user) return msg.channel.send('\\❌ Invalid user.');
-            if (user.bot) return msg.channel.send('\\❌ Bots do not have Sky points.');
-            var points = await r.table('globalPoints').get(user.id).run();
+            const target = msg.mentions.users.first() || client.users.get(args[0]);
+            if (!target) return msg.channel.send('\\❌ Invalid users.');
+            if (target.bot) return msg.channel.send('\\❌ Bots do not have Sky Points\\™.');
+            var points = await r.table('globalPoints').get(target.id).run();
             if (!points) {
-                msg.channel.send(`\\❌ **${user.tag}** does not have a profile. Get them to start chatting to automatically generate one.`);
+                msg.channel.send(`\\❌ **${target.tag}** does not have a profile. Get them to start chatting to automatically generate one.`);
             }
-            msg.channel.send(`\\➡ **${user.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
+            msg.channel.send(`\\➡ **${target.tag}** has **${points.points}** points.\n\\ℹ You can use \`${client.config.prefix}help points\` for more info on points.`);
         }   
     },
     meta: {
         name: 'points',
         ownerOnly: false,
-        description: 'View your or another user\'s Sky Points™.',
+        description: 'Displays Sky Points\\™ profile of target.',
         usage: '[%mention%|%user ID%]'
     }
 }

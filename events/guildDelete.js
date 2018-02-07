@@ -1,6 +1,7 @@
 module.exports = {
     run: async (client, guild) => {
         const channel = client.channels.get(client.config.guildLogChannel);
+        await client.db.table('guildConfig').delete(guild.id).run();
         const log = [
             '<:skydecrement:409275185930305537> **__Left guild!__**',
             `**__Name:__** ${guild.name} (${guild.id})`,
