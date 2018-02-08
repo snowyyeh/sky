@@ -15,8 +15,8 @@ module.exports = {
             }
         } else {
             const guildDbInfo = client.db.table('guildConfig').get(msg.guild.id).run();
-            if (guildDbInfo['official']) return require('../util/points.js').run(client, msg.author, 3);
-            if (guildDbInfo['premium']) return require('../util/points.js').run(client, msg.author, 2);
+            if (guildDbInfo.official) return require('../util/points.js').run(client, msg.author, 3);
+            if (guildDbInfo.premium) return require('../util/points.js').run(client, msg.author, 2);
             return require('../util/points.js').run(client, msg.author);
         }
     }
