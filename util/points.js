@@ -5,14 +5,14 @@ module.exports = {
         if (!client.tempProfiles[user.id].earningPoints) return;
         const profile = await r.table('globalPoints').get(user.id).run();
         
-        profile['points'] += await 2 * multiplier;
-        profile['tag'] = await user.tag;
+        profile['points'] += 2 * multiplier;
+        profile['tag'] = user.tag;
 
         await r.table('globalPoints').get(user.id).update(profile).run();
 
-        client.tempProfiles[user.id].earningPoints = await false;
+        client.tempProfiles[user.id].earningPoints = false;
         setTimeout(async function() {
-            client.tempProfiles[user.id].earningPoints = await true;
+            client.tempProfiles[user.id].earningPoints = true;
         }, 60000);
     }
 }
