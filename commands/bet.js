@@ -24,9 +24,9 @@ module.exports = {
             }
             r.table('globalPoints').get(msg.author.id).update(profile).run();
         }, 2000);
-        client.tempProfiles[user.id].allowedToBet = await false;
+        client.tempProfiles[msg.author.id].allowedToBet = await false;
         setTimeout(async function() {
-            client.tempProfiles[user.id].allowedToBet = await true;
+            client.tempProfiles[msg.author.id].allowedToBet = await true;
         }, 60000);
     },
     meta: {
