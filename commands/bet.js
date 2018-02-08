@@ -1,6 +1,6 @@
 module.exports = {
     run: async (client, msg, args) => {
-        if (!client.tempProfiles[msg.author.id].allowedToBet) return msg.channel.send('\\❌ Your one minute gambling cooldown has not expired yet.');
+        if (!client.tempProfiles[msg.author.id].allowedToBet) return msg.channel.send('\\❌ Your 7 second gambling cooldown has not expired yet.');
         if (!args[0]) return msg.channel.send('\\❌ Please provide a number of points to bet.');
         const r = client.db;
         const profile = await r.table('globalPoints').get(msg.author.id).run();
@@ -27,7 +27,7 @@ module.exports = {
         client.tempProfiles[msg.author.id].allowedToBet = await false;
         setTimeout(async function() {
             client.tempProfiles[msg.author.id].allowedToBet = await true;
-        }, 60000);
+        }, 7000);
     },
     meta: {
         name: 'bet',
