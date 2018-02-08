@@ -10,9 +10,9 @@ module.exports = {
 
         await r.table('globalPoints').get(user.id).update(profile).run();
 
-        client.tempProfiles[user.id] = await { earningPoints: false };
+        client.tempProfiles[user.id].earningPoints = await false;
         setTimeout(async function() {
-            client.tempProfiles[user.id] = await { earningPoints: true };
+            client.tempProfiles[user.id].earningPoints = await true;
         }, 60000);
     }
 }
