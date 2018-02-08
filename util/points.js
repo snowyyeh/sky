@@ -1,18 +1,18 @@
 module.exports = {
     run: async (client, user, multiplier = 1) => {
         const r = client.db;
-        if (!await r.table('globalPoints').get(user.id).run()) {
-            require('./insertNewPointsUser.js').run(client, user);
-        }
-        const points = await r.table('globalPoints').get(user.id).run();
-        if (points.earningPoints) {
-            points.points *= multiplier;
-            points.earningPoints = false;
-            await r.table('globalPoints').get(user.id).update(points).run();
-            setTimeout(async function() {
-                points.earningPoints = await true;
-                await r.table('globalPoints').get(user.id).update(points).run();
-            }, 60000);
-        }
+        if (!await r.table('globalPoints').get(user.id).run()) return require('./insertNewPointsUser.js').run(client, user, multiplier);
+        if (!client.tempProfiles[user.id].earningPoints) return;
+        const profile = await r.table('globalPoints').get(user.id).run();
+        
+        profile['points'] += await 2 * multiplier;
+        profile['tag'] = await user.tag;
+
+        await r.table('globalPoints').get(user.id).update(profile).run();
+
+        client.tempProfiles[user.id] = await { earningPoints: false };
+        setTimeout(async function() {
+            client.tempProfiles[user.id] = await { earningPoints: true };
+        }, 60000);
     }
 }
