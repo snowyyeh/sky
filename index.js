@@ -13,21 +13,9 @@ exports.clev = new Cleverbot({
     key: client.config.cleverbotKey
 });
 
-// setInterval(function() {
-//     require('child_process').exec('./pull.sh', (error, stdout, stderr) => {
-//         if (error) {
-//             return console.error(error);
-//         }
-//         console.log('✅ Successfully pulled latest code from jellz/Sky. Dependencies were not installed.\n\nOutput: ' + stdout);
-//     }); 
-// }, 20000);
-
-
-
-
 require('./website/website.js').app.listen(process.env.PORT || 3003, function() {
     console.log(`Listening on port ${process.env.PORT || 3003}.`);
-}); // gonna work on website soon
+});
 
 fs.readdir('./events', (err, files) => {
     if (err) return console.error(err);
