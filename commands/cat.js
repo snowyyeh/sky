@@ -8,7 +8,7 @@ module.exports = {
     meta: {
         name: 'cat',
         ownerOnly: false,
-        description: 'Return a picture of a cute cat.',
+        description: 'Return a picture of a cat. Cuteness not guaranteed.',
         usage: ''
     }
 }
