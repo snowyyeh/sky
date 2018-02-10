@@ -7,15 +7,6 @@ client.error = require('./util/errorLogger.js').run;
 client.db = require('rethinkdbdash')( {db: 'sky' });
 client.tempProfiles = {};
 
-const Cleverbot = require('cleverbot');
- 
-exports.clev = new Cleverbot({
-    key: client.config.cleverbotKey
-});
-
-require('./website/website.js').app.listen(process.env.PORT || 3003, function() {
-    console.log(`Listening on port ${process.env.PORT || 3003}.`);
-});
 
 fs.readdir('./events', (err, files) => {
     if (err) return console.error(err);

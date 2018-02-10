@@ -10,7 +10,6 @@
   "author": "Jellz",
   "license": "ISC",
   "dependencies": {
-    "cleverbot": "^1.0.1",
     "discord.js": "github:hydrabolt/discord.js",
     "express": "^4.16.2",
     "node-opus": "^0.2.7",
