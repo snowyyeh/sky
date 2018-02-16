@@ -20,7 +20,7 @@ module.exports = {
             `• is owned by **${target.owner.user.tag}**.`,
             `• is located in **${target.region.toUpperCase()}**.`,
             `• has **${target.emojis.size}** custom emojis.`,
-            `• icon can be found @ ${target.iconURL()}.`
+            `• ${target.iconURL() ? 'icon can be found @ ' + target.iconURL() : 'no server icon'}.`
         ].join('\n');
         msg.channel.send(info);
     },
