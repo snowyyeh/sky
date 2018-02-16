@@ -9,7 +9,6 @@ module.exports = {
             place++;
             leaderboard.push(`**[#${place}]** | **${element.tag}** ${element.id == '250536623270264833' ? '\\👑' : ''} with **${element.points}** points.`);
         });
-        leaderboard.push('***Some tips?*** *Talk in official/premium Sky guilds (e.g. Jellz\'s Jungle), you get extra points from those. Gamble - gamble, gamble, gamble. The top users are on the leaderboard because they gambled and they took chances. If you want a chance, check out the bet command. Good luck!*');
         msg.channel.send(leaderboard.join('\n'));
     },
     meta: {
