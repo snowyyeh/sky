@@ -20,7 +20,7 @@ module.exports = {
             ].join('\n');
             msg.channel.send(helpMain);
         } else if (args[0].toLowerCase() === 'points' || args[0].toLowerCase() === 'pts') {
-            const pointsCmds = [`\`${client.config.prefix}lb\``, `\`${client.config.prefix}points\``, `\`${client.config.prefix}bet\``];
+            const pointsCmds = [`\`${client.config.prefix}lb\``, `\`${client.config.prefix}points\``];
             const topUser = (await r.table('globalPoints').run()).sort((a, b) => b.points - a.points)[0].tag;
             const helpPoints = [
                 '__Help for **Points**__',
@@ -30,8 +30,8 @@ module.exports = {
                 'Sky\'s Points system does not include "levels" so you will not be seeing any **Level up!** messages.',
                 'Points are often referred to as points or Sky Points™, so if you see someone talking about Sky Points™, you know what they mean.',
                 '',
-                `Sky Points™ can also be gambled using the \`${client.config.prefix}bet\` command.`,
-                'Say you bet 50 points: you either win, or you lose. Winning would mean you gain 50 points. Losing would mean you lose 50 points.',
+                // `Sky Points™ can also be gambled using the \`${client.config.prefix}bet\` command.`,
+                // 'Say you bet 50 points: you either win, or you lose. Winning would mean you gain 50 points. Losing would mean you lose 50 points.',
                 `The current points commands consist of: ${pointsCmds.join(' ')}.`,
                 '',
                 '**Fun fact!** If you chat in an official guild, you get 3x the normal reward! An example of an official guild would be **Jellz\'s Jungle**.',
