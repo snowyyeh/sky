@@ -1,3 +1,5 @@
+import { isUndefined } from 'util';
+
 const express = require('express');
 const app = express();
 exports.app = app;
@@ -8,7 +10,7 @@ app.get('/', async (req, res) => {
 
 app.get('/u/:id', async (req, res) => {
     const client = require('../index.js').client;
-    if (!req.params.id) return res.send('Id required');
+    if (isUndefined(req.params['id'])) return res.send('Id required');
 });
 
 app.use(function(req, res) {
