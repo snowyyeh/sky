@@ -10,7 +10,7 @@ app.get('/', async (req, res) => {
 
 app.get('/u/:id', async (req, res) => {
     const client = require('../index.js').client;
-    if (isUndefined(req.params['id'])) return res.send('Id required');
+    if (require('util').isUndefined(req.params['id'])) return res.send('Id required');
 });
 
 app.use(function(req, res) {
