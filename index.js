@@ -6,6 +6,7 @@ client.login(client.config.token);
 client.error = require('./util/errorLogger.js').run;
 client.db = require('rethinkdbdash')( {db: 'sky' });
 client.tempProfiles = {};
+exports.client = client;
 
 
 fs.readdir('./events', (err, files) => {
