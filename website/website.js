@@ -9,9 +9,9 @@ app.get('/', async (req, res) => {
 
 app.get('/u', async (req, res) => {
     const client = require('../index.js').client;
-    if (!req.query.id) return res.render('./static/invalidprofile.html', {});
+    if (!req.query.id) return res.sendFile('./static/invalidprofile.html', {});
     const id = req.query.id;
-    if (!client.users.has(id)) return res.render('./static/invalidprofile.html', {});
+    if (!client.users.has(id)) return res.sendFile('./static/invalidprofile.html', {});
     const user = {
         tag: client.users.get(id).tag,
         avatarURL: client.users.get(id).avatarURL()
