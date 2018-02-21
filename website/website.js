@@ -3,7 +3,7 @@ const app = express();
 exports.app = app;
 app.set('view engine', 'ejs');
 app.use(express.static('static'));
-app.set('views', './views');
+app.set('views', __dirname + '/views');
 
 app.get('/', async (req, res) => {
     res.status(200).sendFile(__dirname + '/static/index.html');
