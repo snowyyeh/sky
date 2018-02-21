@@ -12,7 +12,7 @@ app.get('/u', async (req, res) => {
     const client = require('../index.js').client;
     if (!req.query.id) return res.sendFile(__dirname + '/static/invalidprofile.html', {});
     const id = req.query.id;
-    if (!client.users.has(id)) return res.sendFile(__dirname + '/static/invalidprofile.html', {});
+    if (!client.users.has(id) || client.users.get(id).bot == true) return res.sendFile(__dirname + '/static/invalidprofile.html', {});
     const user = {
         tag: client.users.get(id).tag,
         avatarURL: client.users.get(id).avatarURL()
@@ -20,7 +20,7 @@ app.get('/u', async (req, res) => {
     const info = {
         points: (await client.db.table('globalPoints').get(id).run()).points
     }
-    res.render('./views/profile.ejs', {user: user, info: info});
+    res.render('profile.ejs', {user: user, info: info});
 });
 
 app.use(function(req, res) {
