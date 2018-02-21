@@ -9,6 +9,7 @@ app.get('/', async (req, res) => {
 app.get('/u', async (req, res) => {
     const client = require('../index.js').client;
     if (!req.query['id']) return res.send('Id required');
+    res.send('id provided');
 });
 
 app.use(function(req, res) {
