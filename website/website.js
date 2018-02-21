@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 exports.app = app;
 app.set('view engine', 'ejs');
+app.use(epxress.static('static'));
 
 app.get('/', async (req, res) => {
     res.status(200).sendFile(__dirname + '/static/index.html');
