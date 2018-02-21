@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta property="og:title" content="Sky &bullet; View <%= user.tag %>'s Sky profile."/>
+        <meta property="og:site_name" content="Sky &bullet; <%= user.tag %>'s profile"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:description" content="View <%= user.tag %>'s Sky profile on the Sky website."/>
+        <meta name="description" content="View <%= user.tag %>'s Sky profile on the Sky website."/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <title>Sky &bullet; <%= user.tag %>'s profile</title>
+    </head>
+    <body style="background-color:#90caf9;">
+        <div style="text-align: center;">
+            <div>
+                <h3>Sky &bullet; <%= user.tag %>'s profile</h3>
+            </div>
+            <div>
+                <p>You are viewing <b><%= user.tag %></b>'s Sky profile.</p>
+                <span style="border-radius: 50%;"><img src="<%= user.avatarURL %>" alt="User Avatar"></span>
+            </div>
+            <div>
+                <a class="waves-effect waves-light btn" href="#"><%= info.points %> Sky points</a>
+                <!-- <a class="waves-effect waves-light btn" href="#"><%= info.points %> Sky points</a> -->
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div style="text-align: center;">
+            <p>&copy; Jellz 2018</p>
+        </div>
+    </footer>
+</html>
