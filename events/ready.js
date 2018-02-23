@@ -1,6 +1,7 @@
 module.exports = {
     run: async (client) => {
         console.log(`Sky: logged in as ${client.user.tag}!`);
+        client.user.setActivity(';help | https://jellz.fun/sky');
         (await client.db.table('globalPoints').run()).forEach(element => {
             client.tempProfiles[element.id] = { earningPoints: true };
         });
