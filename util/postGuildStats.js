@@ -13,7 +13,7 @@ module.exports = {
         .send({ server_count: client.guilds.size });
         
         // Sending to discordbots.org
-        const { DBL } = require('dblapi.js');
+        const DBL = require('dblapi.js');
         const dblRes = new DBL(client.config.dblToken);
         dblRes.postStats(client.guilds.size);        
     }
