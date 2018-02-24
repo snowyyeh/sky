@@ -9,6 +9,9 @@ module.exports = {
         require('../website/website.js').app.listen(process.env.PORT || 3003, function() {
             console.log(`Listening on port ${process.env.PORT || 3003}.`);
         });
-        
+        await require('../util/postGuildStats.js').run(client);
+        setInterval(() => {
+            require('../util/postGuildStats.js').run(client);
+        }, 120000);
     }
 }
