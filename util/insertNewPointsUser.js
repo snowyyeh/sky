@@ -7,9 +7,9 @@ module.exports = {
             tag: user.tag
         };
         await r.table('globalPoints').insert(defaultPointsSchema).run();
-        client.tempProfiles[user.id] = { earningPoints = false };
+        client.tempProfiles[user.id] = { earningPoints: await false };
         setTimeout(async function() {
-            client.tempProfiles[user.id] = { earningPoints = true };
+            client.tempProfiles[user.id] = { earningPoints: await true };
         }, 60000);
     }
 }
