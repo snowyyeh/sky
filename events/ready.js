@@ -12,6 +12,6 @@ module.exports = {
         await require('../util/postGuildStats.js').run(client);
         setInterval(() => {
             require('../util/postGuildStats.js').run(client);
-        }, 120000);
+        }, 240000);
     }
 }
