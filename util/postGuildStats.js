@@ -15,6 +15,8 @@ module.exports = {
         // Sending to discordbots.org
         const DBL = require('dblapi.js');
         const dblRes = new DBL(client.config.dblToken);
-        dblRes.postStats(client.guilds.size);        
+        dblRes.postStats(client.guilds.size);
+
+        console.log('Successfully posted guild count to 3 bot lists');
     }
 }
