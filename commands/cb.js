@@ -4,7 +4,7 @@ module.exports = {
         const query = args.join(' ');
         msg.channel.send(`query: ${query}`);
         const cleverbot = require('../index.js').cleverbot;
-        const response = await cleverbot.write(query, function() {
+        await cleverbot.write(query, function(response) {
             msg.channel.send(response.output);
             msg.channel.send(JSON.stringify(response), { code: 'json' });
         });
