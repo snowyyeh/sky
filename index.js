@@ -4,9 +4,16 @@ const fs = require('fs');
 client.config = require('./config.json');
 client.login(client.config.token);
 client.error = require('./util/errorLogger.js').run;
-client.db = require('rethinkdbdash')( {db: 'sky' });
+client.db = require('rethinkdbdash')({ db: 'sky' });
 client.tempProfiles = {};
 exports.client = client;
+
+// Cleverbot
+const Cleverbot = require('cleverbot-node');
+const cleverbot = new Cleverbot;
+cleverbot.configure({ botapi: client.config.cleverbotKey });
+exports.cleverbot = cleverbot;
+
 
 
 fs.readdir('./events', (err, files) => {
