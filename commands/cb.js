@@ -3,8 +3,9 @@ module.exports = {
         if (!args[0]) return msg.channel.send('\\❌ Please provide a valid input.');
         const query = args.join(' ');
         const cleverbot = require('../index.js').cleverbot;
-        const response = await cleverbot.write(query);
-        msg.channel.send(response.output);
+        const response = await cleverbot.write(query, function() {
+            msg.channel.send(response.output);
+        });
     },
     meta: {
         name: 'cb',
