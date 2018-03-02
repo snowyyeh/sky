@@ -41,7 +41,7 @@ module.exports = {
             ].join('\n');
             msg.channel.send(helpPoints);
         } else if (args[0].toLowerCase() === 'cleverbot' || args[0].toLowerCase() === 'ai') {
-            return msg.channel.send('Cleverbot has been permanently removed from Sky. This was not due to financial issues, it was due to some technical backend issues. Sorry for the inconvenience!');
+            // return msg.channel.send('Cleverbot has been permanently removed from Sky. This was not due to financial issues, it was due to some technical backend issues. Sorry for the inconvenience!');
             const helpCleverbot = [
                 '__Help for **Cleverbot**__',
                 '',
@@ -49,11 +49,11 @@ module.exports = {
                 '',
                 'Access to Cleverbot API does infact cost $$ but it is worth it.',
                 'If you have any money to spare and would like to support the',
-                `Cleverbot AI in Sky, please use the \`${client.config.prefix}about\` command.`,
-                'Donations are greatly appreciated.',
+                `Cleverbot AI in Sky, please use the \`${client.config.prefix}about\` command`,
+                'and ask in the support server. Donations are greatly appreciated.',
                 '',
-                'To use the Cleverbot AI, just mention Sky with a query.',
-                'For example -> **@Sky how was your day?**',
+                `To use the Cleverbot AI, just use the \`${client.config.prefix}cb\` command.`,
+                `For example -> **${client.config.prefix}cb how was your day?**`,
             ].join('\n');
             msg.channel.send(helpCleverbot);
         } else {
@@ -65,6 +65,6 @@ module.exports = {
         name: 'help',
         ownerOnly: false,
         description: 'I\'m stuck Where do I go? Oh! Thanks Sky, the extremely helpful bot.',
-        usage: ''
+        usage: '[%category%]'
     }
 }
