@@ -10,7 +10,7 @@ exports.client = client;
 
 // Cleverbot
 const Cleverbot = require('cleverbot-node');
-const cleverbot = new Cleverbot;
+const cleverbot = new Cleverbot();
 cleverbot.configure({ botapi: client.config.cleverbotKey });
 exports.cleverbot = cleverbot;
 
