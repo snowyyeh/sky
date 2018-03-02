@@ -14,7 +14,6 @@ module.exports = {
                 client.error(client, err.stack, `(Message Handler) Command Run`, `**cmd:** ${msg.content} **user:** ${msg.author.tag} (${msg.author.id}) **guild:** ${msg.guild.name} (${msg.guild.id})`);
             }
         } else {
-            if (msg.guild.id == '110373943822540800') return;
             const guildDbInfo = await client.db.table('guildConfig').get(msg.guild.id).run();
             if (guildDbInfo['official']) return require('../util/points.js').run(client, msg.author, 2);
             if (guildDbInfo['premium']) return require('../util/points.js').run(client, msg.author, 2);
